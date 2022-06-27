@@ -12,14 +12,15 @@ def runoob(request):
 def search_form(request):
     return render(request, 'search_form.html')
 
-def search(request):
+def search_result(request):
     request.encoding='utf-8'
     if 'q' in request.GET and request.GET['q']:
         message = 'the content of your input: ' + request.GET['q']
     else:
         message = 'nothing' 
-    return HttpResponse(message)
+    #return HttpResponse(message)
+    return render(request, 'search_result.html', message)
 
-def base(request):
-    return render(request, 'base.html')
+def search_module(request):
+    return render(request, 'search_module.html')
 

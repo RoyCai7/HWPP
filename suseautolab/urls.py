@@ -27,6 +27,6 @@ urlpatterns = [
     url(r'^$', views.hello),
     path('runoob/', views.runoob),
     url(r'^search-form/$', views.search_form),
-    url(r'^search/$', views.search),
-    url(r'^base/$', views.base),
+    url(r'^search_result/$', views.search_result),
+    url(r'^search_module/$', views.search_module),
     ]
