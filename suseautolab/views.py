@@ -25,7 +25,7 @@ def search_result(request):
     # return HttpResponse(message)
     context = {}
     context['message'] = message
-    return render(request, 'search_result.html', message)
+    return render(request, 'search_result.html', context)
 
 
 def search_module(request):
