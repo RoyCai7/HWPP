@@ -3,7 +3,7 @@
 <script src="/static/bootstrap/js/bootstrap.min.js"></script>
 <script src="/static/bootstrap/js/jquery.min.js"></script>
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color:0C322C;">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -12,7 +12,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">SUSE</a>
+        <a href="https://www.suse.com" id="home-logo">
+            <img class="logo nonfed" height="52px" src="https://www.suse.com/assets/img/suse-white-logo-green.svg">
+        </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -34,14 +36,19 @@
                 </li>
             </ul>
           -->
-          <!--
-            <form class="navbar-form navbar-left" action="/search/" method="get">
+            <form class="navbar-form navbar-left" action="/search_result/" method="get">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" name="q">
                 </div>
+                <div class="form-group">
+                    <select class="form-control" id="sel1" name="sellist1">
+                        <option class="form-control">OSD and O3</option>
+                        <option class="form-control">OSD</option>
+                        <option class="form-control">O3</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
-        -->
             <!--  
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
@@ -60,5 +67,4 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
 <h1>{{ message }}</h1>
