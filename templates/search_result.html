@@ -12,9 +12,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        <a href="https://www.suse.com" id="home-logo">
-            <img class="logo nonfed" height="52px" src="https://www.suse.com/assets/img/suse-white-logo-green.svg">
-        </a>
+            <a href="https://www.suse.com" id="home-logo">
+                <img class="logo nonfed" height="52px" src="https://www.suse.com/assets/img/suse-white-logo-green.svg">
+            </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -70,42 +70,54 @@
 <h1>This is the result of test module {{ module }} on {{ typesite }}</h1>
 <link href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css" rel="stylesheet">
 <script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
-<table id="table"
-  data-toolbar=".toolbar"
-  data-height="400"
-  data-virtual-scroll="true"
-  data-show-columns="true">
-  <thead>
-    <tr>
-      <th data-field="id">ID</th>
-      <th data-field="name">Item Name</th>
-      <th data-field="price">Item Price</th>
-    </tr>
-  </thead>
+<div class="toolbar">
+    <button id="load" class="btn btn-secondary">Load 10000 Rows</button>
+    <button id="append" class="btn btn-secondary">Append 10000 Rows</button>
+    Total rows: <span id="total"></span>
+</div>
+<table id="table" data-toolbar=".toolbar" data-height="400" data-virtual-scroll="true" data-show-columns="true">
+    <thead>
+        <tr>
+            <th data-field="id">ID</th>
+            <th data-field="name">Item Name</th>
+            <th data-field="price">Item Price</th>
+        </tr>
+    </thead>
 </table>
-
 <script>
-  var $table = $('#table')
-  var total = 0
+var $table = $('#table')
+var total = 0
 
-  function getData(number, isAppend) {
+function getData(number, isAppend) {
     if (!isAppend) {
-      total = 0
+        total = 0
     }
     var data = []
     for (var i = total; i < total + number; i++) {
-      data.push({
-        'id': i,
-        'name': 'Item ' + i,
-        'price': '$' + i
-      })
+        data.push({
+            'id': i,
+            'name': 'Item ' + i,
+            'price': '$' + i
+        })
     }
     if (isAppend) {
-      total += number
+        total += number
     } else {
-      total = number
+        total = number
     }
     $('#total').text(total)
     return data
-  }
+}
+
+$(function() {
+    $table.bootstrapTable({ data: getData(20) })
+
+    $('#load').click(function() {
+        $table.bootstrapTable('load', getData(10000))
+    })
+
+    $('#append').click(function() {
+        $table.bootstrapTable('append', getData(10000, true))
+    })
+})
 </script>
