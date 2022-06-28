@@ -19,12 +19,16 @@ def search_form(request):
 def search_result(request):
     request.encoding = 'utf-8'
     if 'q' in request.GET and request.GET['q']:
-        message = 'the content of your input: ' + request.GET['q']
+        module = request.GET['q']
     else:
-        message = 'nothing'
-    # return HttpResponse(message)
+        module = 'nothing'
+    if 'sellist1' in request.GET and request.GET['sellist1']:
+        typesite = request.GET['sellist1']
+    else:
+        typesite = 'nothing'
     context = {}
-    context['message'] = message
+    context['module'] = module
+    context['typesite'] = typesite
     return render(request, 'search_result.html', context)
 
 
