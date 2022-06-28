@@ -73,9 +73,10 @@
 <table id="table" data-toolbar=".toolbar" data-height="400" data-virtual-scroll="true" data-show-columns="true">
     <thead>
         <tr>
-            <th data-field="id">ID</th>
-            <th data-field="name">Item Name</th>
-            <th data-field="price">Item Price</th>
+            <th data-field="site">OSD_O3</th>
+            <th data-field="group">JobGroup</th>
+            <th data-field="name">JobName</th>
+            <th data-field="id">JobID</th>
         </tr>
     </thead>
 </table>
@@ -87,9 +88,10 @@ function getData(number, isAppend) {
     var data = []
     for (var i = total; i < total + number; i++) {
         data.push({
-            'id': i,
-            'name': 'Item ' + i,
-            'price': '$' + i
+            'stie': i,
+            'group': 'Item ' + i,
+            'name': '$' + i,
+            'id': 'id' + i
         })
     }
     return data
