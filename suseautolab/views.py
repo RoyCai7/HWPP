@@ -35,10 +35,11 @@ def search_result(request):
     context['module'] = module
     context['typesite'] = typesite
 
-    if 'O3' == typesite:
-        cmd = "perl /root/website/HWPP/scriptfind_jobs_by_module.pl -f %s -m %s" %(typesite, module)
-        result = commands.getstatusoutput(cmd)
-    context['result']=result
+    for site in ['O3', 'OSD']:
+        cmd = "perl /root/website/HWPP/scriptfind_jobs_by_module.pl -f %s -m %s" % (
+            typesite, module)
+        ret = subprocess.run(cmd, shell=True)
+    context['ret'] = ret
     return render(request, 'search_result.html', context)
 
 
