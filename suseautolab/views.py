@@ -52,6 +52,8 @@ def search_result(request):
     print(stdout1)
     fo.write(stdout1)
     fo.close()
+    modulename = module + ".html"
+    context['modulename'] = modulename
 
     return render(request, 'search_result.html', context)
 
