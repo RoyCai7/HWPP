@@ -36,7 +36,7 @@ def search_result(request):
     context['typesite'] = typesite
 
     for site in ['O3', 'OSD']:
-        cmd = "perl /root/website/HWPP/scriptfind_jobs_by_module.pl -f %s -m %s" % (
+        cmd = "perl /root/website/HWPP/script/find_jobs_by_module.pl -f %s -m %s" % (
             typesite, module)
         ret = subprocess.run(cmd, shell=True)
     context['ret'] = ret
