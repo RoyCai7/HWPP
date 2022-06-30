@@ -24,7 +24,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.hello),
+    url(r'^$', views.search_module),
     path('runoob/', views.runoob),
     url(r'^search-form/$', views.search_form),
     url(r'^search_result/$', views.search_result),
