@@ -51,7 +51,7 @@ def search_result(request):
     fo = open("templates/%s.html" % module, "w")
     print(stdout1)
     fo.write("See you soon!")
-    fo.close
+    fo.close()
 
     return render(request, 'search_result.html', context)
 
