@@ -40,8 +40,10 @@ def search_result(request):
             typesite, module)
         ret = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE)
     context['ret'] = ret
-    context['stdout'] = bytes.decode(ret.stdout)
-    print(context)
+    tmpstring= bytes.decode(ret.stdout)
+    tmpstring="Site: %s\n" %typesite + "Test module: %s\n" %module + tmpstring
+    tmpstring.replace("/n", "<br>").replace("/t", "&nbsp;")
+    context(stdout) = tmpstring
     return render(request, 'search_result.html', context)
 
 

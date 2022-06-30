@@ -68,37 +68,3 @@
 </nav>
 <h1>This is the result of test module {{ module }} on {{ typesite }}</h1>
 {{ stdout }}
-<link href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css" rel="stylesheet">
-<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
-<table id="table" data-toolbar=".toolbar" data-height="600" data-virtual-scroll="true" data-show-columns="true">
-    <thead>
-        <tr>
-            <th data-field="site">Site</th>
-            <th data-field="testmodule">Test Module</th>
-            <th data-field="groupid">Job Group ID</th>
-            <th data-field="groupname">Job Group Name</th>
-            <th data-field="task link">Task Link</th>
-        </tr>
-    </thead>
-</table>
-<script>
-var $table = $('#table')
-var total = 0
-
-function getData(number, isAppend) {
-    var data = []
-    for (var i = total; i < total + number; i++) {
-        data.push({
-            'site': 'OSD_O3',
-            'group': 'Item ' + i,
-            'name': '$' + i,
-            'id': 'id' + i
-        })
-    }
-    return data
-}
-
-$(function() {
-    $table.bootstrapTable({ data: getData(20) })
-})
-</script>
