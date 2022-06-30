@@ -78,7 +78,7 @@ sub getJobGroups {
 
 sub getJobs {
     my $job_groups = shift;
-    my $build_limit = $last_build ? $last_build : 1;
+    my $build_limit = $last_build ? $last_build : 2;
     my @array_results;
     foreach my $group (@$job_groups) {
         my $json_builds = qx{curl -s $url/group_overview/$group->{id}.json?limit_builds=$build_limit};
