@@ -45,10 +45,13 @@ def search_result(request):
     stdout = tmpstring.replace("\n", "<br>").replace("\t", "&nbsp;")
     context['stdout'] = stdout
 
-    fo.open('%s.html' % module, "r+")
-    fo.write(stdout)
-    fo.close
-    
+
+    print(subprocess.run('pwd',shell=True, stdout=subprocess.PIPE).stdout)
+
+#    fo.open('%s.html' % module, "r+")
+#    fo.write(stdout)
+#    fo.close
+
     return render(request, 'search_result.html', context)
 
 
