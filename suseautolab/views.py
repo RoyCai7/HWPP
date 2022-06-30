@@ -38,10 +38,9 @@ def search_result(request):
     for site in ['o3', 'osd']:
         cmd = "perl /root/website/HWPP/script/find_jobs_by_module.pl -f %s -m %s" % (
             typesite, module)
-        ret = subprocess.run(cmd, shell=True,stdout=subprocess.PIPE)
+        ret = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE)
     context['ret'] = ret
-    context['stdout'] = ret.stdout
-    print(context)
+    context['stdout'] = bytes.decode(ret.stdout)
     return render(request, 'search_result.html', context)
 
 
