@@ -45,7 +45,7 @@ def search_result(request):
     stdout = tmpstring.replace("\n", "<br>").replace("\t", "&nbsp;")
     context['stdout'] = stdout
     print(subprocess.run('pwd', shell=True, stdout=subprocess.PIPE).stdout)
-    print(subprocess.run('touch templates/%s' % module, shell=True, stdout=subprocess.PIPE).stdout)
+    print(subprocess.run('touch templates/%s.html' % module, shell=True, stdout=subprocess.PIPE).stdout)
 
     fo.open('templates/%s.html' % module, "r+")
     fo.write(stdout)
