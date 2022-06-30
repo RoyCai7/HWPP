@@ -42,9 +42,8 @@ def search_result(request):
     context['ret'] = ret
     tmpstring = bytes.decode(ret.stdout)
     tmpstring = "Site: %s\n" % typesite + "Test module: %s\n" % module + tmpstring
-    tmpstring.replace("/n", "<br>").replace("/t", "&nbsp;")
-    context['stdout'] = tmpstring
-    print(tmpstring)
+    stdout = tmpstring.replace("/n", "<br>").replace("/t", "&nbsp;")
+    context['stdout'] = stdout
     return render(request, 'search_result.html', context)
 
 
