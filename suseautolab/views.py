@@ -41,6 +41,7 @@ def search_result(request):
         ret = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE)
     context['ret'] = ret
     context['stdout'] = bytes.decode(ret.stdout)
+    print(context)
     return render(request, 'search_result.html', context)
 
 
