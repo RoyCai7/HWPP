@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import commands
 
 
 def hello(request):
@@ -17,6 +18,10 @@ def search_form(request):
 
 
 def search_result(request):
+    context = {}
+    module = ''
+    typesite = ''
+    result = ''
     request.encoding = 'utf-8'
     if 'q' in request.GET and request.GET['q']:
         module = request.GET['q']
@@ -26,9 +31,14 @@ def search_result(request):
         typesite = request.GET['sellist1']
     else:
         typesite = 'nothing'
-    context = {}
+
     context['module'] = module
     context['typesite'] = typesite
+
+    if 'O3' == typesite:
+        cmd = "perl /root/website/HWPP/scriptfind_jobs_by_module.pl -f %s -m %s" %(typesite, module)
+        result = commands.getstatusoutput(cmd)
+    context['result']=result
     return render(request, 'search_result.html', context)
 
 
