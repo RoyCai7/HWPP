@@ -35,7 +35,7 @@ def search_result(request):
     context['module'] = module
     context['typesite'] = typesite
 
-    for site in ['O3', 'OSD']:
+    for site in ['o3', 'osd']:
         cmd = "perl /root/website/HWPP/script/find_jobs_by_module.pl -f %s -m %s" % (
             typesite, module)
         ret = subprocess.run(cmd, shell=True)
