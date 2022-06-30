@@ -44,7 +44,11 @@ def search_result(request):
     tmpstring = "Site: %s\n" % typesite + "Test module: %s\n" % module + tmpstring
     stdout = tmpstring.replace("\n", "<br>").replace("\t", "&nbsp;")
     context['stdout'] = stdout
-    print(stdout)
+
+    fo.open('%s.html' % module, "r+")
+    fo.write(stdout)
+    fo.close
+    
     return render(request, 'search_result.html', context)
 
 
