@@ -48,7 +48,7 @@ def search_result(request):
     print(subprocess.run('touch templates/%s.html' %
                          module, shell=True, stdout=subprocess.PIPE).stdout)
 
-    fo = open('templates/%s.html' % module, "rw")
+    fo = open('templates/%s.html' % module, "w")
     fo.write(stdout)
     fo.close
 
