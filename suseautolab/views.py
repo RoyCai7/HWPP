@@ -42,7 +42,7 @@ def search_result(request):
     context['ret'] = ret
     tmpstring = bytes.decode(ret.stdout)
     tmpstring = "Site: %s\n" % typesite + "Test module: %s\n" % module + tmpstring
-    stdout1 = tmpstring.replace("\n", "<br>").replace("\t", "&nbsp;")
+    stdout1 = tmpstring.replace("\n", "<br>").replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     context['stdout'] = stdout1
     print(subprocess.run('pwd', shell=True, stdout=subprocess.PIPE).stdout)
     print(subprocess.run('touch templates/%s.html' %
