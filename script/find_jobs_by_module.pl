@@ -12,7 +12,7 @@ getopt
     'j|job_group=s' => \my $job_group_ids;
 
 help() if ($help);
-my $command = 'openqa-cli api -p';
+our $command = 'openqa-cli api -p';
 sub help {
     my $help_message = <<EOF;
 Usage: openqa-search-job-by-module -m module_name -f osd/o3 -j 268,269
@@ -98,8 +98,8 @@ sub getJobs {
             my $jobs = decode_json($json_jobs);
             next if (scalar(@$jobs) <= 0);
             $group->{result}->{$num} = $jobs;
-            push @array_results, $group;
         }
+        push @array_results, $group;
     }
     return @array_results;
 }
